@@ -52,7 +52,7 @@ namespace JARTraining2
             {
                 string pNameTemp = DropDownList1.SelectedValue;
                 myConnection.Open();
-                SqlCommand com = new SqlCommand("SELECT sName from [dbo].[Table] WHERE pName LIKE @field", myConnection);
+                SqlCommand com = new SqlCommand("SELECT sName from [dbo].[test1] WHERE fName LIKE @field", myConnection);
                 com.Parameters.AddWithValue("@field", pNameTemp);
                 txtEditSkill.Text = com.ExecuteScalar().ToString();
                 myConnection.Close();
@@ -71,10 +71,11 @@ namespace JARTraining2
                 string pNameTemp = DropDownList1.SelectedValue;
                 string sNameTemp = txtEditSkill.Text;
                 myConnection.Open();
-                SqlCommand com = new SqlCommand("Insert into [dbo].[Table] (sName) Values (@sName) WHERE pName LIKE @field", myConnection);
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[test1] SET (sName) = (@sName) WHERE fName LIKE @field", myConnection);
                 com.Parameters.AddWithValue("@field", pNameTemp);
                 com.Parameters.AddWithValue("@sName", sNameTemp);
-                txtEditSkill.Text = com.ExecuteScalar().ToString();
+                com.ExecuteNonQuery();
+                //txtEditSkill.Text = com.ExecuteScalar().ToString();
                 myConnection.Close();
             }
 
