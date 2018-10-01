@@ -40,8 +40,10 @@
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <%--<asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />--%>
-                            <asp:BoundField DataField="sName" HeaderText="sName" SortExpression="sName" />
-                            <asp:BoundField DataField="fName" HeaderText="fName" SortExpression="fName" />
+                            <asp:BoundField DataField="SkillID" HeaderText="SkillID" SortExpression="SkillID" />
+                            <asp:BoundField DataField="SkillName" HeaderText="SkillName" SortExpression="SkillName" />
+                            <asp:BoundField DataField="SkillHoursSpent" HeaderText="SkillHoursSpent" SortExpression="SkillHoursSpent" />
+                            <asp:BoundField DataField="User_Name" HeaderText="User_Name" SortExpression="User_Name" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -55,7 +57,7 @@
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
 
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:JAR_trainingConnectionString %>" SelectCommand="SELECT * FROM [test1]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:JAR_trainingConnectionString %>" SelectCommand="SELECT * FROM [Skills]"></asp:SqlDataSource>
 
                 </div>
             </asp:View>
