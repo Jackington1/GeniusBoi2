@@ -71,7 +71,7 @@ namespace JARTraining2
                 string pNameTemp = DropDownList1.SelectedValue;
                 string sNameTemp = txtEditSkill.Text;
                 myConnection.Open();
-                SqlCommand com = new SqlCommand("UPDATE [dbo].[test1] SET sName = @sName WHERE fName LIKE @field", myConnection);
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[test1] SET sName = (@sName) WHERE fName LIKE @field", myConnection);
                 com.Parameters.AddWithValue("@field", pNameTemp);
                 com.Parameters.AddWithValue("@sName", sNameTemp);
                 com.ExecuteNonQuery();
@@ -83,7 +83,6 @@ namespace JARTraining2
             {
                 throw new Exception(ex.Message);
             }
-            
         }
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
@@ -94,6 +93,12 @@ namespace JARTraining2
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //getdata();
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Sign_in.aspx");
         }
     }
 }
