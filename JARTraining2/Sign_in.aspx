@@ -54,7 +54,9 @@
             <tr>  
                 <td> </td>  
                 <td class="auto-style3"> </td>  
-                <td class="auto-style2"> </td>  
+                <td class="auto-style2"> 
+                    <asp:Label ID="lblInvalid" runat="server" Font-Bold="True" ForeColor="Red" Text="Invalid Username/Password" Visible="false"></asp:Label>
+                </td>  
                 <td> </td>  
                 <td> </td>  
                 <td> </td>  
@@ -63,7 +65,7 @@
                 <td> </td>  
                 <td class="auto-style3"> </td>  
                 <td style="text-align: center" class="auto-style2">  
-                    <asp:Button ID="btnLogin" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="Button1_Click" Text="Log In" />  
+                    <asp:Button ID="btnLogin" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="btnSubmit_Click" Text="Log In" />  
                 </td>  
                 <td> </td>  
                 <td> </td>  

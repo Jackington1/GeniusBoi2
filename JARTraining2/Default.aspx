@@ -12,10 +12,9 @@
         </a>
             Add some Skills.</p>
         <asp:Label runat="server" ID="lblWelcome"></asp:Label>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="tabmenu">
+        <p>
+            <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
+        </p>
         <asp:Menu ID="Menu1" runat="server" OnMenuItemClick="Menu1_MenuItemClick" Orientation="Horizontal">
             <Items>
                 <asp:MenuItem Selected="true" Text="Enter Skill" Value="0"></asp:MenuItem>

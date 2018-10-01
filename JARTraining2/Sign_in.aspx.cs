@@ -19,20 +19,21 @@ namespace JARTraining2
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["JAR_trainingConnectionString"].ConnectionString);
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[user_id_t] WHERE UserName =@username AND Password=@password", con);
-            cmd.Parameters.AddWithValue("@username", txtUserN.Text);
-            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[user_id_t] WHERE User_Name =@username AND Password=@password", con);
+            cmd.Parameters.AddWithValue("@username", txtUserN.Text.Trim());
+            cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            /*DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
+            if (count == 2)
             {
-                Response.Redirect("Details.aspx");
+                Session["username"] = txtUserN.Text.Trim();
+                Response.Redirect("Default.aspx");
             }
             else
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Invalid Username and Password')</script>");
-            }*/
+                lblInvalid.Visible = true;
+            }
+            
         }
     }
 }
