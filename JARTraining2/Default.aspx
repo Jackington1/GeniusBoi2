@@ -1,21 +1,32 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="JARTraining2._Default" %>
 
+
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .inputBoxes{
+            margin: 0 auto;
+            text-align: center;
+            }
+
+    </style>
+    
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-    <div class="jumbotron">
-        <h1>JAR Skills App</h1>
+ 
+    <div class="jumbotron";>
+        <h1 style="color:darkred">JAR Skills App</h1>
         <p class="lead">
         <a href="http://hemansings.com">
             <asp:Image runat="server" src="Images/skills.jpg" ImageUrl="hemansings.com" Style="margin-right: 0px" Height="16px" Width="37px" />
         </a>
             Add some Skills.</p>
-        <asp:Label runat="server" ID="lblWelcome"></asp:Label>
+        <asp:Label runat="server" ID="lblWelcome" CssClass="welcomeClass"></asp:Label>
         <p>
             <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
         </p>
-        <asp:Menu ID="Menu1" runat="server" OnMenuItemClick="Menu1_MenuItemClick" Orientation="Horizontal">
+        <asp:Menu ID="Menu1" CssClass="SomeMenuClass" runat="server" OnMenuItemClick="Menu1_MenuItemClick" Orientation="Horizontal">
             <Items>
                 <asp:MenuItem Selected="true" Text="Enter Skill" Value="0"></asp:MenuItem>
                 <asp:MenuItem Text="Update Student" Value="1"></asp:MenuItem>
@@ -27,10 +38,10 @@
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
             <asp:View ID="Tab1" runat="server">
                 <div class="row">
-                    <asp:Label runat="server" ID="lblName" AssociatedControlID="txtName">Name:</asp:Label><asp:TextBox runat="server" ID="txtName"></asp:TextBox><br />
-                    <asp:Label runat="server" ID="lblSkill" AssociatedControlID="txtSkill">Skill:</asp:Label><asp:TextBox runat="server" ID="txtSkill"></asp:TextBox><br />
-                    <asp:Label runat="server" ID="lblSkillHoursLearn" AssociatedControlID="txtSkillHoursLearn">Skill Hours Learn:</asp:Label><asp:TextBox runat="server" ID="txtSkillHoursLearn"></asp:TextBox><br />
-                    <asp:Label runat="server" ID="lblSkillHoursSpent" AssociatedControlID="txtSkillHoursSpent">Skill Hours Spent:</asp:Label><asp:TextBox runat="server" ID="txtSkillHoursSpent"></asp:TextBox><br />
+                    <asp:Label runat="server"  ID="lblName" AssociatedControlID="txtName" style="text-align:center">Name:</asp:Label><asp:TextBox runat="server"  ID="txtName" style="text-align:center" ></asp:TextBox><br />
+                    <asp:Label runat="server"  ID="lblSkill" AssociatedControlID="txtSkill">Skill:</asp:Label><asp:TextBox runat="server"  ID="txtSkill"></asp:TextBox><br />
+                    <asp:Label runat="server"  ID="lblSkillHoursLearn" AssociatedControlID="txtSkillHoursLearn">Skill Hours Learn:</asp:Label><asp:TextBox runat="server"  ID="txtSkillHoursLearn"></asp:TextBox><br />
+                    <asp:Label runat="server"  ID="lblSkillHoursSpent" AssociatedControlID="txtSkillHoursSpent">Skill Hours Spent:</asp:Label><asp:TextBox runat="server"  ID="txtSkillHoursSpent"></asp:TextBox><br />
 
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                     
@@ -72,4 +83,5 @@
             </asp:View>
         </asp:MultiView>
     </div>
+
 </asp:Content>
