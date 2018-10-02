@@ -50,7 +50,7 @@ namespace JARTraining2
         {
             try
             {
-                string pNameTemp = DropDownList1.SelectedValue;
+                string pNameTemp = ddlUpdate.SelectedValue;
                 myConnection.Open();
                 SqlCommand com = new SqlCommand("SELECT sName from [dbo].[test1] WHERE fName LIKE @field", myConnection);
                 com.Parameters.AddWithValue("@field", pNameTemp);
@@ -68,12 +68,32 @@ namespace JARTraining2
         {
             try
             {
-                string pNameTemp = DropDownList1.SelectedValue;
+                string pNameTemp = ddlUpdate.SelectedValue;
                 string sNameTemp = txtEditSkill.Text;
                 myConnection.Open();
                 SqlCommand com = new SqlCommand("UPDATE [dbo].[test1] SET sName = (@sName) WHERE fName LIKE @field", myConnection);
                 com.Parameters.AddWithValue("@field", pNameTemp);
                 com.Parameters.AddWithValue("@sName", sNameTemp);
+                com.ExecuteNonQuery();
+                //txtEditSkill.Text = com.ExecuteScalar().ToString();
+                myConnection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        protected void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nameTemp = ddlDelete.SelectedValue;
+                
+                myConnection.Open();
+                SqlCommand com = new SqlCommand("DELETE FROM [dbo].[test1] WHERE CONCAT(fName, ' ', sName) LIKE @field", myConnection);
+                com.Parameters.AddWithValue("@field", nameTemp);                
                 com.ExecuteNonQuery();
                 //txtEditSkill.Text = com.ExecuteScalar().ToString();
                 myConnection.Close();
@@ -100,5 +120,7 @@ namespace JARTraining2
             Session.Abandon();
             Response.Redirect("Sign_in.aspx");
         }
+
+        
     }
 }

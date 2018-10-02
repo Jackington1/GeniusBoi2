@@ -30,6 +30,7 @@
             <Items>
                 <asp:MenuItem Selected="true" Text="Enter Skill" Value="0"></asp:MenuItem>
                 <asp:MenuItem Text="Update Student" Value="1"></asp:MenuItem>
+                <asp:MenuItem Text="Delete User" Value="2"></asp:MenuItem>
             </Items>
         </asp:Menu>
     </div>
@@ -74,12 +75,21 @@
             </asp:View>
             <asp:View ID="Tab2" runat="server">
 
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="fName" DataValueField="fName" OnSelectedIndexChanged ="DropDownList1_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlUpdate" runat="server" DataSourceID="SqlDataSource2" DataTextField="fName" DataValueField="fName" OnSelectedIndexChanged ="DropDownList1_SelectedIndexChanged">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:JAR_trainingConnectionString %>" SelectCommand="SELECT * FROM [test1]"></asp:SqlDataSource>
                 <asp:Button ID="btnGetSkills" runat="server" Text="Retrieve" OnClick="btnRetrieve_Click" /><br />
                 <asp:Label runat="server" ID="lblEditSkill" AssociatedControlID="txtEditSkill">Skill: </asp:Label><asp:TextBox runat="server" ID="txtEditSkill"></asp:TextBox><br />
                 <asp:Button ID="btnUpdateSkills" runat="server" Text="Update" OnClick="btnUpdate_Click" /><br />
+            </asp:View>
+
+            <asp:View ID="Tab3" runat="server">
+
+                <asp:DropDownList ID="ddlDelete" runat="server" DataSourceID="SqlDataSource4" DataTextField="Name" DataValueField="Name">
+                </asp:DropDownList><br />
+                <asp:Button ID="btnDeleteUser" runat="server" Text="Delete" OnClick="btnDeleteUser_Click" />
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:JAR_trainingConnectionString %>" SelectCommand="SELECT { fn CONCAT(fName + ' ', sName) } AS Name FROM test1"></asp:SqlDataSource>
+
             </asp:View>
         </asp:MultiView>
     </div>

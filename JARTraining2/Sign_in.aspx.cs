@@ -22,9 +22,16 @@ namespace JARTraining2
             SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[user_id_t] WHERE User_Name =@username AND Password=@password", con);
             cmd.Parameters.AddWithValue("@username", txtUserN.Text.Trim());
             cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            if (count == 2)
+            //int count = Convert.ToInt32(cmd.ExecuteScalar());
+            int count = 0;
+            SqlDataReader myRead = cmd.ExecuteReader();
+            while (myRead.Read())
+            {
+                count = count + 1;
+            }
+                 
+
+            if (count == 1)
             {
                 Session["username"] = txtUserN.Text.Trim();
                 Response.Redirect("Default.aspx");
