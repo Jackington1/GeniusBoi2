@@ -108,14 +108,19 @@
         }
 
         @-webkit-keyframes animatezoom {
-            from {-webkit-transform: scale(0)}
-            to {-webkit-transform: scale(1)}
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
         }
 
         @keyframes animatezoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
-        }
+            from {
+                transform: scale(0)
+            }
 
             to {
                 transform: scale(1)
@@ -264,9 +269,11 @@
 
     <h2 style="text-align: center">Skillz Boysss Login Form</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto text-align: center" >Login</button>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width: auto text-align: center">Login</button>
 
-<div id="id01" class="modal">
+    <button onclick="document.getElementById('id02').style.display='block'" style="width: auto text-align: center">Register</button>
+
+    <div id="id01" class="modal">
 
         <form class="modal-content animate" id="form1" runat="server" action="Sign_in">
             <div class="imgcontainer">
@@ -307,24 +314,69 @@
 
             </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-    </form>
-</div>
 
-<script>
-    // Get the modal
-    var modal = document.getElementById('id01');
+            <div class="container" style="background-color: #f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+    <div id="id02" class="modal">
+        <form class="modal-content animate" id="form2" action="Sign_in">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="img_avatar3.png" alt="Avatar" class="avatar">
+                <br />
+                <form>
+                    <div class="floating-placeholder">
+                        <input id="name" name="name" type="text" />
+                        <label for="name">First Name</label>
+                    </div>
+                    <div class="floating-placeholder">
+                        <input id="address" name="address" type="text" />
+                        <label for="address">Second Name</label>
+                    </div>
+                    <div class="floating-placeholder">
+                        <input id="city" name="city" type="text" />
+                        <label for="city">Desired Username</label>
+                    </div>
+                    <div class="floating-placeholder">
+                        <input id="password" name="password" type="password" />
+                        <label for="password">Password</label>
+                    </div>
+                    <button class="button button4">Enter</button>
+                </form>
+
+            </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
-    }
-</script>
+
+        // Get the modal
+        var modal = document.getElementById('id02');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
