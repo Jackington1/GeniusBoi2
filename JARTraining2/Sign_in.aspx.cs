@@ -28,8 +28,7 @@ namespace JARTraining2
             while (myRead.Read())
             {
                 count = count + 1;
-            }
-                 
+            }    
 
             if (count == 1)
             {
@@ -41,6 +40,11 @@ namespace JARTraining2
                 lblInvalid.Visible = true;
             }
             
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

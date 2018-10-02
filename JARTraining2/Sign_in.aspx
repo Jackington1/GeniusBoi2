@@ -5,7 +5,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {font-family: Arial, Helvetica, sans-serif;}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
         /* Full-width input fields */
         input[type=text], input[type=password] {
@@ -28,9 +30,9 @@
             width: 100%;
         }
 
-        button:hover {
-            opacity: 0.8;
-        }
+            button:hover {
+                opacity: 0.8;
+            }
 
         /* Extra styles for the cancel button */
         .cancelbtn {
@@ -93,26 +95,36 @@
             font-weight: bold;
         }
 
-        .close:hover,
-        .close:focus {
-            color: red;
-            cursor: pointer;
-        }
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
 
         /* Add Zoom Animation */
         .animate {
             -webkit-animation: animatezoom 0.6s;
-            animation: animatezoom 0.6s
+            animation: animatezoom 0.6s;
         }
 
         @-webkit-keyframes animatezoom {
-            from {-webkit-transform: scale(0)}
-            to {-webkit-transform: scale(1)}
+            from {
+                -webkit-transform: scale(0);
+            }
+
+            to {
+                -webkit-transform: scale(1);
+            }
         }
 
         @keyframes animatezoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
         }
 
         /* Change styles for span and cancel button on extra small screens */
@@ -121,6 +133,7 @@
                 display: block;
                 float: none;
             }
+
             .cancelbtn {
                 width: 100%;
             }
@@ -129,69 +142,73 @@
 </head>
 <body>
 
-<h2 style="text-align: center">Skillz Boysss Login Form</h2>
+    <h2 style="text-align: center">Skillz Boysss Login Form</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto text-align: center" >Login</button>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width: auto text-align: center">Login</button>
+    
 
-<div id="id01" class="modal">
 
-    <form class="modal-content animate"  id="form1" runat="server" action="Sign_in">
-        <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="img_avatar2.png" alt="Avatar" class="avatar">
-        </div>
+    <div id="id01" class="modal">
 
-        <div class="container">
+        <form class="modal-content animate" id="form1" runat="server" action="Sign_in">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
 
-            <td style="text-align: center" class="auto-style3">  
-                    <asp:Label ID="lblUserN" runat="server" Font-Size="X-Large" Text="UserId :"></asp:Label>  
-                </td>  
-                <td style="text-align: center" class="auto-style2">  
-                    <asp:TextBox ID="txtUserN" runat="server" Font-Size="X-Large"></asp:TextBox>  
-                </td>  
+            <div class="container">
 
-            <td style="text-align: center" class="auto-style3">  
-                    <asp:Label ID="lblPassword" runat="server" Font-Size="X-Large" Text="Password :"></asp:Label>  
-                </td>  
-                <td style="text-align: center" class="auto-style2">  
-                    <asp:TextBox ID="txtPassword" runat="server" Font-Size="X-Large" TextMode="Password"></asp:TextBox>  
-                </td>  
+                <td style="text-align: center" class="auto-style3">
+                    <asp:Label ID="lblUserN" runat="server" Font-Size="X-Large" Text="UserId :"></asp:Label>
+                </td>
+                <td style="text-align: center" class="auto-style2">
+                    <asp:TextBox ID="txtUserN" runat="server" Font-Size="X-Large"></asp:TextBox>
+                </td>
 
-            <td class="auto-style3"> </td>  
-                <td class="auto-style2"> 
+                <td style="text-align: center" class="auto-style3">
+                    <asp:Label ID="lblPassword" runat="server" Font-Size="X-Large" Text="Password :"></asp:Label>
+                </td>
+                <td style="text-align: center" class="auto-style2">
+                    <asp:TextBox ID="txtPassword" runat="server" Font-Size="X-Large" TextMode="Password"></asp:TextBox>
+                </td>
+
+                <td class="auto-style3"></td>
+                <td class="auto-style2">
                     <asp:Label ID="lblInvalid" runat="server" Font-Bold="True" ForeColor="Red" Text="Invalid Username/Password" Visible="false"></asp:Label>
-                </td>  
+                </td>
 
-            <td class="auto-style3"> </td>  
-                <td style="text-align: center" class="auto-style2">  
-                    <asp:Button ID="btnLogin" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="btnSubmit_Click" Text="Log In" />  
-                </td>  
+                <td class="auto-style3"></td>
+                <td style="text-align: center" class="auto-style2">
+                    <asp:Button ID="btnLogin" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="btnSubmit_Click" Text="Log In" />
+                </td>
 
-            <td class="auto-style3"> </td>  
-                <td class="auto-style2">  
+                <td class="auto-style3"></td>
+                <td class="auto-style2">
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:JAR_trainingConnectionString %>" SelectCommand="SELECT [User_Name], [Password] FROM [user_id_t]"></asp:SqlDataSource>
-                </td>  
+                </td>
 
-        </div>
+            </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-    </form>
-</div>
+            <div class="container" style="background-color: #f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+   
 
-<script>
-    // Get the modal
-    var modal = document.getElementById('id01');
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+       // var modal2 = document.getElementById('id02');
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
