@@ -34,12 +34,15 @@ namespace JARTraining2
             //skills.skillHoursSpent = int.Parse(txtSkillHoursSpent.Text);
             person.Skills = new List<Skill>();
             person.Skills.Add(skills);
-
+            Random rnd = new Random();
+            int rndNumber = rnd.Next(1, 500);
             myConnection.Open();
-            string query = "Insert into [dbo].[test1](fName,sName) Values (@fName,@sName)";
+            string query = "Insert into [dbo].[Skills](User_Name,SkillName, SkillHoursSpent, SkillID) Values (@fName,@sName, @SHSpent, @SID)";
             SqlCommand insertCommand = new SqlCommand(query, myConnection);
             insertCommand.Parameters.AddWithValue("@fName", person.name);
-            insertCommand.Parameters.AddWithValue("@sName", skills.skillName);            
+            insertCommand.Parameters.AddWithValue("@sName", skills.skillName);
+            insertCommand.Parameters.AddWithValue("@SHSpent", txtSkillHoursSpent.Text.Trim());
+            insertCommand.Parameters.AddWithValue("@SID", rndNumber);            
             insertCommand.ExecuteNonQuery();
             myConnection.Close();
             GridView1.DataBind();
@@ -52,9 +55,13 @@ namespace JARTraining2
             {
                 string pNameTemp = ddlUpdate.SelectedValue;
                 myConnection.Open();
-                SqlCommand com = new SqlCommand("SELECT sName from [dbo].[test1] WHERE fName LIKE @field", myConnection);
+                SqlCommand com = new SqlCommand("SELECT SkillName FROM [dbo].[Skills] WHERE User_Name LIKE @field", myConnection);
+                SqlCommand com2 = new SqlCommand("SELECT SkillHoursSpent FROM [dbo].[Skills] WHERE User_Name LIKE @field", myConnection);
                 com.Parameters.AddWithValue("@field", pNameTemp);
+                com2.Parameters.AddWithValue("@field", pNameTemp);
                 txtEditSkill.Text = com.ExecuteScalar().ToString();
+                txtEditHours.Text = com2.ExecuteScalar().ToString();
+
                 myConnection.Close();
             }
 
@@ -69,9 +76,9 @@ namespace JARTraining2
             try
             {
                 string pNameTemp = ddlUpdate.SelectedValue;
-                string sNameTemp = txtEditSkill.Text;
+                string sNameTemp = txtEditHours.Text;
                 myConnection.Open();
-                SqlCommand com = new SqlCommand("UPDATE [dbo].[test1] SET sName = (@sName) WHERE fName LIKE @field", myConnection);
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Skills] SET SkillHoursSpent = (@sName) WHERE User_Name LIKE @field", myConnection);
                 com.Parameters.AddWithValue("@field", pNameTemp);
                 com.Parameters.AddWithValue("@sName", sNameTemp);
                 com.ExecuteNonQuery();

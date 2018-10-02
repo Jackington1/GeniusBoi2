@@ -94,24 +94,6 @@ namespace JARTraining2 {
         protected global::System.Web.UI.WebControls.TextBox txtSkill;
         
         /// <summary>
-        /// lblSkillHoursLearn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSkillHoursLearn;
-        
-        /// <summary>
-        /// txtSkillHoursLearn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSkillHoursLearn;
-        
-        /// <summary>
         /// lblSkillHoursSpent control.
         /// </summary>
         /// <remarks>
@@ -209,6 +191,24 @@ namespace JARTraining2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEditSkill;
+        
+        /// <summary>
+        /// lblEditHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEditHours;
+        
+        /// <summary>
+        /// txtEditHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditHours;
         
         /// <summary>
         /// btnUpdateSkills control.

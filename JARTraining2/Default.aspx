@@ -29,7 +29,7 @@
         <asp:Menu ID="Menu1" CssClass="SomeMenuClass" runat="server" OnMenuItemClick="Menu1_MenuItemClick" Orientation="Horizontal">
             <Items>
                 <asp:MenuItem Selected="true" Text="Enter Skill" Value="0"></asp:MenuItem>
-                <asp:MenuItem Text="Update Student" Value="1"></asp:MenuItem>
+                <asp:MenuItem Text="Update Skill" Value="1"></asp:MenuItem>
                 <asp:MenuItem Text="Delete User" Value="2"></asp:MenuItem>
             </Items>
         </asp:Menu>
@@ -40,9 +40,13 @@
             <asp:View ID="Tab1" runat="server">
                 <div class="row">
                     <asp:Label runat="server"  ID="lblName" AssociatedControlID="txtName" style="text-align:center">Name:</asp:Label><asp:TextBox runat="server"  ID="txtName" style="text-align:center" ></asp:TextBox><br />
-                    <asp:Label runat="server"  ID="lblSkill" AssociatedControlID="txtSkill">Skill:</asp:Label><asp:TextBox runat="server"  ID="txtSkill"></asp:TextBox><br />
-                    <asp:Label runat="server"  ID="lblSkillHoursLearn" AssociatedControlID="txtSkillHoursLearn">Skill Hours Learn:</asp:Label><asp:TextBox runat="server"  ID="txtSkillHoursLearn"></asp:TextBox><br />
-                    <asp:Label runat="server"  ID="lblSkillHoursSpent" AssociatedControlID="txtSkillHoursSpent">Skill Hours Spent:</asp:Label><asp:TextBox runat="server"  ID="txtSkillHoursSpent"></asp:TextBox><br />
+                    <asp:Label runat="server"  ID="lblSkill" AssociatedControlID="txtSkill">Skill:</asp:Label>
+                    <asp:TextBox ID="txtSkill" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lblSkillHoursSpent" runat="server" AssociatedControlID="txtSkillHoursSpent">Skill Hours Spent:</asp:Label>
+                    <asp:TextBox runat="server"  ID="txtSkillHoursSpent"></asp:TextBox>
+                    <br />
+                    <br />
 
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                     
@@ -75,11 +79,12 @@
             </asp:View>
             <asp:View ID="Tab2" runat="server">
 
-                <asp:DropDownList ID="ddlUpdate" runat="server" DataSourceID="SqlDataSource2" DataTextField="fName" DataValueField="fName" OnSelectedIndexChanged ="DropDownList1_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlUpdate" runat="server" DataSourceID="SqlDataSource2" DataTextField="User_Name" DataValueField="User_Name" OnSelectedIndexChanged ="DropDownList1_SelectedIndexChanged">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:JAR_trainingConnectionString %>" SelectCommand="SELECT * FROM [test1]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:JAR_trainingConnectionString %>" SelectCommand="SELECT [User_Name] FROM [Skills]"></asp:SqlDataSource>
                 <asp:Button ID="btnGetSkills" runat="server" Text="Retrieve" OnClick="btnRetrieve_Click" /><br />
                 <asp:Label runat="server" ID="lblEditSkill" AssociatedControlID="txtEditSkill">Skill: </asp:Label><asp:TextBox runat="server" ID="txtEditSkill"></asp:TextBox><br />
+                <asp:Label runat="server" ID="lblEditHours" AssociatedControlID="txtEditHours">Hours: </asp:Label><asp:TextBox runat="server" ID="txtEditHours"></asp:TextBox><br />
                 <asp:Button ID="btnUpdateSkills" runat="server" Text="Update" OnClick="btnUpdate_Click" /><br />
             </asp:View>
 
